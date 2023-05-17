@@ -10,7 +10,7 @@ function Quotes() {
     const getOneQuote = async () =>{
         const response =  await axios.get(`${BASE_URI}/random`)
         setQuote(response.data.content)
-        setAuthor(response.data. author)   
+        setAuthor(response.data.author)   
     }
 
   useEffect(()=>{
