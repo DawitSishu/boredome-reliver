@@ -1,15 +1,16 @@
 import './App.css';
-import Insults from './Components/Insults';
-import Jokes from './Components/Jokes';
-import Memes from './Components/Memes';
-import Quotes from './Components/Quotes'
+import Insults from './Components/Insults/Insults';
+import Jokes from './Components/Jokes/Jokes';
+import Memes from './Components/Memes/Memes';
+import Quotes from './Components/Quotes/Quotes'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from './Components/Home';
+import Home from './Components/Home/Home';
+
+import ParticleBG from './Components/ParticleBG';
 
 function App() {
-  
   return (
-    <BrowserRouter>
+<BrowserRouter>
     <Routes>
       <Route exact path="/" element={<Home />} />
       <Route path="insults" element={<Insults />} />
@@ -18,6 +19,7 @@ function App() {
       <Route path="quotes" element={<Quotes />} />
     </Routes>
   </BrowserRouter>
+ 
   );
 }
 
