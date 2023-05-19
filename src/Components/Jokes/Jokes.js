@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import axios from "axios"
 import { useEffect, useState } from "react"
+import ParticleBG from "../ParticleBG";
+import { Container } from "@mui/system";
+import { Typography,Card, Button, Box } from "@mui/material";
+import { Input } from "@mui/base";
 
 
 const BASE_URI = "https://v2.jokeapi.dev/joke"
@@ -69,35 +73,51 @@ function Jokes() {
   },[])
     
   return (
-    <div>
-       {!twopart && <h1>
+    <>
+    <ParticleBG />
+    <Container maxWidth="md">
+    <Card variant="outlined" style={{marginTop:30,backgroundColor:"black",color:"white"}}>
+    {!twopart &&<Typography variant="h4">
         {joke}
-        </h1>}
+        </Typography> }
+        <br />
         {twopart && <>
-          <h2>
+          <Typography variant="h5">
             {twoJoke[0]}
-          </h2>
-          <h2>
+          </Typography>
+          <Typography variant="h5">
             {twoJoke[1]}
-          </h2>
+          </Typography>
           </>
           }
-          <div>
-        <button onClick={custom ? handleFilters : twopart ? getTwoLinerJoke: getRandomJoke}>get Another One</button>
-        <button  onClick ={toggleJokes}>get {twopart ? "One  liner" : "Two Liner" } Joke</button>
-        </div>
-        <div>
-          <h3>select a catagory below the submit to filter</h3>
+    </Card>
+          <Container maxWidth="lg">
+        <Button 
+          variant="outlined" 
+          onClick={custom ? handleFilters : twopart ? getTwoLinerJoke: getRandomJoke} 
+          style={{marginRight:20}}>get Another One</Button>
+        <Button variant="outlined" onClick ={toggleJokes}>get {twopart ? "One  liner" : "Two Liner" } Joke</Button>
+        </Container>
+        <Box style={{marginTop:20}}> 
+          <Typography variant="h5">select a catagory below the submit to filter</Typography>
           <form onSubmit={handleFilters}>
-            <label htmlFor="dark">Dark</label>
-            <input type="checkbox" name="dark"  onClick={()=>setDark(!dark)}/>
-            <label htmlFor="dark">programming</label>
-            <input type="checkbox" name="dark"  onClick={()=>setProgramming(!programming)}/>
-            <input type="submit" name="submit" />
+            {/* <label htmlFor="dark">Dark</label> */}
+            <Typography variant="h5">Dark</Typography>
+            <Input type="checkbox" name="dark"  onClick={()=>setDark(!dark)}/>
+            {/* <label htmlFor="dark">programming</label> */}
+            <Typography variant="h5">programming</Typography>
+            <Input type="checkbox" name="dark"  onClick={()=>setProgramming(!programming)}/>
+            {/* <Input type="submit" name="submit" /> */}
+            <Button type="submit" variant="outlined">submit</Button>
           </form>
-        </div>
-        <Link to={"/"}>take me back </Link>
-    </div>
+        </Box>
+        <Link to={"/"}>
+        <Button  variant="outlined" style={{marginTop:30}}>
+        take me back 
+        </Button>
+        </Link>
+    </Container>
+    </>
   )
 }
 

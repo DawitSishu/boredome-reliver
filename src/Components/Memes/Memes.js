@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import axios from "axios"
 import { useEffect, useState } from "react"
@@ -19,7 +19,7 @@ function Memes() {
         }
         setTimeout(() => {
             setDisabled(false)
-        }, 6000);
+        }, 5000);
     }
 
     useEffect(()=>{
@@ -28,16 +28,22 @@ function Memes() {
   return (
 <>
 <ParticleBG />
-    <Container>
+    <Container maxWidth="md">
         <img src={img}  />
         <br />
-        <button onClick={()=>{
+        {
+            disabled &&
+            <Typography variant="h5" style={{color:"red"}}>Wait to see another One</Typography>
+        }
+        <Button onClick={()=>{
             getMeme();
             setDisabled(true);
             }} 
-            disabled={disabled}>
+            disabled={disabled}
+            variant="outlined"
+            style={{marginTop:30,marginRight:20}}>
                 Get Another One
-        </button>
+        </Button>
         <Link to={"/"}>
         <Button  variant="outlined" style={{marginTop:30}}>
         take me back 
