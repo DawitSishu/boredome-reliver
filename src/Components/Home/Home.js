@@ -13,7 +13,7 @@ function Home() {
     <ParticleBG />
         <Container maxWidth="sm" className="baseContainer">
       <Stack spacing={2} >
-      <Link to={"insults"} className="link">
+      <Link to={"/insults"} className="link">
       <Button variant="outlined">
      insult me
       </Button>
