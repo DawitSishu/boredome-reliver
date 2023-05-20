@@ -2,6 +2,9 @@
 
 A simple bordome-reliver app that tells jokes,insults you, inspires you, and even show u memes to relive your boredome.
 
+## Live demo:
+ https://boredome-reliver.web.app/
+
 ## Available Scripts
 
 In the project directory, you can run:
