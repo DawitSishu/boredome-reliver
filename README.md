@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Boredome-Reliver-App with React 
 
 A simple bordome-reliver app that tells jokes,insults you, inspires you, and even show u memes to relive your boredome.
 
